@@ -1,97 +1,221 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 💕 Tinder Replicate Frontend
 
-# Getting Started
+A modern **Tinder-like dating app** built with React Native, featuring swipe gestures, real-time data fetching, and a beautiful UI following Atomic Design principles.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Features
 
-## Step 1: Start Metro
+### Core Functionality
+- **🔥 Card Swiping**: Smooth swipe gestures with animations for like/dislike actions
+- **📱 Tab Navigation**: Discover and Liked pages with seamless navigation
+- **♾️ Infinite Scrolling**: Automatic loading of more profiles as you swipe
+- **💖 Like Management**: Track and view liked profiles with real-time updates
+- **🖼️ Photo Gallery**: Multiple photos per profile with indicator dots
+- **⚡ Optimistic Updates**: Instant UI feedback for better user experience
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Technical Features
+- **🏗️ Atomic Design**: Clean component architecture (Atoms → Molecules → Organisms)
+- **🔄 React Query**: Efficient data fetching, caching, and synchronization
+- **🌐 Recoil State**: Global state management for app-wide data
+- **📱 Responsive Design**: Optimized for various screen sizes
+- **🎨 Modern UI**: Beautiful gradients, animations, and smooth transitions
+- **⚡ Performance**: Image prefetching and optimized rendering
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🛠️ Tech Stack
 
-```sh
-# Using npm
-npm start
+### Frontend
+- **React Native** `0.82.0` - Cross-platform mobile development
+- **TypeScript** `5.8.3` - Type-safe development
+- **React Navigation** `7.1.18` - Navigation and routing
+- **React Query** `5.90.5` - Server state management
+- **Recoil** `0.7.7` - Global state management
+- **React Native Reanimated** `4.1.3` - Smooth animations
+- **React Native Gesture Handler** `2.28.0` - Touch gestures
 
-# OR using Yarn
-yarn start
+### UI & Styling
+- **React Native Linear Gradient** `2.8.3` - Beautiful gradients
+- **React Native Safe Area Context** `5.6.1` - Safe area handling
+- **Custom Theme System** - Consistent colors and styling
+
+### Development Tools
+- **ESLint** - Code linting and formatting
+- **Prettier** - Code formatting
+- **Jest** - Unit testing framework
+- **TypeScript** - Static type checking
+
+## 📁 Project Structure
+
+```
+src/
+├── api/                    # API layer
+│   ├── client.ts          # HTTP client configuration
+│   └── people.ts          # People-related API calls
+├── atoms/                 # Atomic Design - Atoms
+│   ├── IconButton.tsx     # Reusable icon button
+│   └── PhotoIndicator.tsx # Photo gallery indicators
+├── molecules/             # Atomic Design - Molecules
+│   └── ProfileCard.tsx    # Individual profile card
+├── organisms/             # Atomic Design - Organisms
+│   └── CardStack.tsx      # Swipeable card stack
+├── pages/                 # Screen components
+│   ├── DiscoverPage.tsx   # Main swiping interface
+│   └── LikedPage.tsx      # Liked profiles page
+├── navigation/            # Navigation setup
+│   └── MainTabs.tsx       # Tab navigation
+├── hooks/                 # Custom React hooks
+│   └── useOpponents.ts    # Data fetching hooks
+├── state/                 # Global state management
+│   └── atoms.ts           # Recoil atoms
+├── theme/                 # Design system
+│   └── colors.ts          # Color palette
+└── types.ts               # TypeScript type definitions
 ```
 
-## Step 2: Build and run your app
+## 🚀 Getting Started
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Prerequisites
+- **Node.js** (v18 or higher)
+- **npm** or **yarn**
+- **React Native CLI**
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development, macOS only)
 
-### Android
+### Installation
 
-```sh
-# Using npm
-npm run android
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd tfe
+   ```
 
-# OR using Yarn
-yarn android
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **iOS Setup** (macOS only)
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+
+4. **Start Metro bundler**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+5. **Run the app**
+   
+   **For Android:**
+   ```bash
+   npm run android
+   # or
+   yarn android
+   ```
+   
+   **For iOS:**
+   ```bash
+   npm run ios
+   # or
+   yarn ios
+   ```
+
+## 📱 Usage
+
+### Discover Page
+- **Swipe Right** ➡️ to like a profile
+- **Swipe Left** ⬅️ to dislike a profile
+- **Tap Photos** 📸 to view multiple images
+- **Auto-load** 🔄 more profiles as you swipe
+
+### Liked Page
+- **View** all your liked profiles
+- **Infinite scroll** to load more liked profiles
+- **Real-time updates** when you like new profiles
+
+## 🏗️ Architecture
+
+### Atomic Design Pattern
+- **Atoms**: Basic building blocks (IconButton, PhotoIndicator)
+- **Molecules**: Simple combinations (ProfileCard)
+- **Organisms**: Complex components (CardStack)
+- **Pages**: Full screen layouts (DiscoverPage, LikedPage)
+
+### Data Flow
+1. **API Layer**: Handles HTTP requests and responses
+2. **React Query**: Manages server state, caching, and synchronization
+3. **Custom Hooks**: Encapsulate data fetching logic
+4. **Components**: Consume data through hooks
+5. **Recoil**: Manages global client state
+
+### State Management
+- **Server State**: React Query (people data, liked profiles)
+- **Global State**: Recoil (app-wide settings, user preferences)
+- **Local State**: React useState (component-specific state)
+
+## 🧪 Testing
+
+```bash
+# Run tests
+npm test
+# or
+yarn test
+
+# Run linting
+npm run lint
+# or
+yarn lint
 ```
 
-### iOS
+## 🔧 Development Scripts
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm start          # Start Metro bundler
+npm run android    # Run on Android
+npm run ios        # Run on iOS
+npm run lint       # Run ESLint
+npm test           # Run Jest tests
 ```
 
-Then, and every time you update your native dependencies, run:
+## 🎨 Customization
 
-```sh
-bundle exec pod install
+### Colors
+Modify `src/theme/colors.ts` to customize the app's color scheme:
+
+```typescript
+export const colors = {
+  primary: '#FF4458',      // Main brand color
+  bg: '#000000',           // Background
+  text: '#FFFFFF',         // Primary text
+  // ... more colors
+};
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### API Configuration
+Update `src/api/client.ts` to point to your backend:
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```typescript
+const API_BASE_URL = 'your-api-endpoint';
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📄 License
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+This project is licensed under the MIT License.
 
-## Step 3: Modify your app
+## 🤝 Contributing
 
-Now that you have successfully run the app, let's make changes!
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 📞 Support
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+For support and questions, please open an issue in the repository.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Built with ❤️ using React Native and modern development practices**

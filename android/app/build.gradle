@@ -84,6 +84,13 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        
+        externalNativeBuild {
+            cmake {
+                arguments "-DCMAKE_OBJECT_PATH_MAX=256"
+            }
+        }
+
     }
     signingConfigs {
         debug {
@@ -95,6 +102,7 @@ android {
     }
     buildTypes {
         debug {
+            // debuggable true
             signingConfig signingConfigs.debug
         }
         release {
